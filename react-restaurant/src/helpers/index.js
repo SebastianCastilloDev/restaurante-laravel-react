@@ -1,0 +1,1 @@
+export const formatearDinero = cantidad => cantidad.toLocaleString('es-CL', {style:"currency", currency:"CLP"}); 
