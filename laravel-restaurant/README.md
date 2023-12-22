@@ -46,3 +46,4 @@ sail artisan make:seeder CategoriaSeeder
 
 sail artisan make:resource CategoriaCollection
 sail artisan make:resource CategoriaResource  
+sail artisan make:model Producto --resource --api --migration
