@@ -43,3 +43,6 @@ Seeder
 sail artisan make:seeder CategoriaSeeder
 
  sail artisan db:seed 
+
+sail artisan make:resource CategoriaCollection
+sail artisan make:resource CategoriaResource  
