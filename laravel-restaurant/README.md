@@ -18,3 +18,28 @@ conexionDB_CONNECTION=mysql
     DB_PASSWORD=password
     FORWARD_DB_PORT=3307 // Este se agrega para dedicar este puerto especialmente a este proyecto
 
+
+Modelo Categoria
+```
+sail artisan make:model Categoria --migration --controller
+```
+
+en el archivo de la migracion agregaremos dos campos: nombre e icono
+```php
+Schema::create('categorias', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombre');
+            $table->string('icono');
+            $table->timestamps();
+        });
+```
+
+Finalmente ejecutamos 
+```
+sail artisan migrate
+```
+
+Seeder
+sail artisan make:seeder CategoriaSeeder
+
+ sail artisan db:seed 
