@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegistroRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -10,7 +11,7 @@ class AuthController extends Controller
 {
     public function register(RegistroRequest $request) {
         // validar el registro
-        $data = $request->validated();
+        $data = $request->validate();
 
         $user = User::create([
             'name' => $data['name'],
@@ -25,10 +26,13 @@ class AuthController extends Controller
         ];
         
     }
-    public function login(Request $request) {
-        
+    public function login(LoginRequest $request) {
+        $request->validated([
+            'email'=>['required', 'email', 'exists:users,email'],
+            'password'=>['required']
+        ]);
     }
     public function logout(Request $request) {
-        
+        return "desde logout";
     }
 }

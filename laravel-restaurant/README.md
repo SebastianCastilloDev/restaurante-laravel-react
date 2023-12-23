@@ -57,3 +57,5 @@ mysql -u sail -p -h 127.0.0.1 -P 3307
 
 para listar las rutas de la aplicacion
 sail artisan route:list
+
+sail artisan make:request LoginRequest
