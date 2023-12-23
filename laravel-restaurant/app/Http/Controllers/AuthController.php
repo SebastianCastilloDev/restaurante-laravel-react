@@ -27,10 +27,17 @@ class AuthController extends Controller
         
     }
     public function login(LoginRequest $request) {
-        $request->validated([
+        $data = $request->validated([
             'email'=>['required', 'email', 'exists:users,email'],
             'password'=>['required']
         ]);
+
+        //revisar el password
+        if(!auth()->attempt($data)) {
+            return response([
+                'errors' => ['El email o el password son incorrectos']
+            ], 422);
+        }
     }
     public function logout(Request $request) {
         return "desde logout";

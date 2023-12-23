@@ -20,6 +20,7 @@ export default function Login() {
       const { data } = await clienteAxios.post('/api/login', datos)
       console.log(data.token)
     } catch (error) {
+      console.log(error)
       setErrores(Object.values(error.response.data.errors))
     }
   }
