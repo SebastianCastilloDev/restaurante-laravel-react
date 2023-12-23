@@ -50,3 +50,10 @@ sail artisan make:model Producto --resource --api --migration
 
 sail artisan make:controller AuthController
 sail artisan make:request RegistroRequest
+
+
+acceso a la base de datos desde la terminal
+mysql -u sail -p -h 127.0.0.1 -P 3307
+
+para listar las rutas de la aplicacion
+sail artisan route:list

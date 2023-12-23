@@ -18,12 +18,13 @@ use App\Http\Controllers\CategoriaController;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    //para acceder a estas rutas se debe estar autenticado
     return $request->user();
 });
 
-
 Route::apiResource('/categorias', CategoriaController::class);
 Route::apiResource('/productos', ProductoController::class);
+
 
 // Autenticacion
 Route::post('/registro',[AuthController::class,'register']);
