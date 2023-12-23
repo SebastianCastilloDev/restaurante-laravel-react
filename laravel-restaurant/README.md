@@ -49,3 +49,4 @@ sail artisan make:resource CategoriaResource
 sail artisan make:model Producto --resource --api --migration
 
 sail artisan make:controller AuthController
+sail artisan make:request RegistroRequest
