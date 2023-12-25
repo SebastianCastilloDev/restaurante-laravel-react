@@ -83,7 +83,7 @@ const QuioscoProvider = ({ children }) => {
         try {
             await clienteAxios.post('/api/pedidos',
                 {
-
+                    total
                 },
                 {
                     headers: {
