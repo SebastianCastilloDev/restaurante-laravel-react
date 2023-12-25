@@ -66,3 +66,6 @@ sail artisan migrate
 
 sail artisan make:model PedidoProducto --migration
 sail artisan migrate
+
+sail artisan make:migration add_admin_column_to_users_table
+sail artisan migrate
