@@ -19,6 +19,9 @@ conexionDB_CONNECTION=mysql
     FORWARD_DB_PORT=3307 // Este se agrega para dedicar este puerto especialmente a este proyecto
 
 
+acceso a la base de datos desde la terminal
+mysql -u sail -p -h 127.0.0.1 -P 3307
+
 Modelo Categoria
 ```
 sail artisan make:model Categoria --migration --controller
@@ -52,10 +55,11 @@ sail artisan make:controller AuthController
 sail artisan make:request RegistroRequest
 
 
-acceso a la base de datos desde la terminal
-mysql -u sail -p -h 127.0.0.1 -P 3307
 
 para listar las rutas de la aplicacion
 sail artisan route:list
 
 sail artisan make:request LoginRequest
+
+sail artisan make:model Pedido --migration --api --resource
+sail artisan migrate
