@@ -63,3 +63,6 @@ sail artisan make:request LoginRequest
 
 sail artisan make:model Pedido --migration --api --resource
 sail artisan migrate
+
+sail artisan make:model PedidoProducto --migration
+sail artisan migrate
