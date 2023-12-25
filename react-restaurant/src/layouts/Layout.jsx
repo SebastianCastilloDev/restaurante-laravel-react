@@ -6,6 +6,7 @@ import Sidebar from '../components/sidebar'
 import Resumen from '../components/Resumen'
 import useQuiosco from '../hooks/useQuiosco'
 import ModalProducto from '../components/ModalProducto'
+import { useAuth } from '../hooks/useAuth'
 
 const customStyles = {
   content: {
@@ -23,6 +24,12 @@ Modal.setAppElement('#root')
 export default function Layout() {
 
   const { modal } = useQuiosco()
+  const { user, error } = useAuth({ middleware: 'auth' })
+
+  console.log(user)
+  console.log(error)
+
+
   return (
     <>
       <div className='md:flex'>
