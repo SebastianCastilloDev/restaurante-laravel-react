@@ -17,9 +17,14 @@ use App\Http\Controllers\CategoriaController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    //para acceder a estas rutas se debe estar autenticado
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/user', function (Request $request) {
+        //para acceder a estas rutas se debe estar autenticado
+        return $request->user();
+    });
+
+    Route::post('/logout',[AuthController::class, 'logout']);
+
 });
 
 Route::apiResource('/categorias', CategoriaController::class);
