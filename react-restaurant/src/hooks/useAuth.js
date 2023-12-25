@@ -66,6 +66,8 @@ export const useAuth = ({middleware, url}) => {
         }
     },[user, error])
 
+
+    
     return {
         login,
         registro,
