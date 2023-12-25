@@ -77,11 +77,11 @@ const QuioscoProvider = ({ children }) => {
         setModal(!modal)
     }
 
-    const handleSubmitNuevaOrden = async () => {
+    const handleSubmitNuevaOrden = async (logout) => {
         const token = localStorage.getItem('AUTH_TOKEN')
 
         try {
-            await clienteAxios.post('/api/pedidos',
+            const { data } = await clienteAxios.post('/api/pedidos',
                 {
                     total,
                     productos: pedido.map(producto => {
@@ -96,6 +96,18 @@ const QuioscoProvider = ({ children }) => {
                         Authorization: `Bearer ${token}`
                     }
                 })
+
+            toast.success(data.message)
+            setTimeout(() => {
+                setPedido([])
+            }, 1000)
+
+            // Cerrar la sesión del usuario
+            setTimeout(() => {
+                localStorage.removeItem('AUTH_TOKEN')
+                logout();
+            }, 3000)
+
         } catch (error) {
             console.log(error)
         }
