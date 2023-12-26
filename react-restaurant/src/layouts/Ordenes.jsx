@@ -1,5 +1,6 @@
 import useSWR from 'swr'
 import clienteAxios from '../config/axios'
+import { formatearDinero } from '../helpers'
 
 export default function Ordenes() {
     const token = localStorage.getItem('AUTH_TOKEN')
@@ -20,7 +21,7 @@ export default function Ordenes() {
             <p className='text-2xl my-10'>
                 Administra las ordenes desde aquí
             </p>
-            <div>
+            <div className='grid grid-cols-2 gap-10'>
                 {data.data.data.map(pedido => (
                     <div key={pedido.id} className='p-5 bg-white shadow space-y-2 border-b'>
                         <p className="text-xl font-bold text-slate-600">
@@ -37,6 +38,24 @@ export default function Ordenes() {
                             </div>
                         ))}
 
+                        <p className='text-lg font-bold text-slate-600'>
+                            Cliente: {''}
+                            <span className='font-normal text-slate-600'>{pedido.user.name}</span>
+                        </p>
+
+
+                        <p className='text-lg font-bold text-amber-500'>
+                            Total a pagar: {''}
+                            <span className='font-normal text-slate-600'>{formatearDinero(pedido.total)}</span>
+                        </p>
+
+                        <button
+                            type="button"
+                            className={
+                                'bg-indigo-600 hover:bg-indigo-800 px-5 py-2 rounded uppercase font-bold text-white text-center w-full cursor-pointer'
+                            }
+
+                        >Completar</button>
 
                     </div>
                 ))}
