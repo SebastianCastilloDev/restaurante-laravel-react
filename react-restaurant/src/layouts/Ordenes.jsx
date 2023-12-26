@@ -9,7 +9,7 @@ export default function Ordenes() {
         }
     })
 
-    const { data, error, isLoading } = useSWR('/api/pedidos', fetcher)
+    const { data, error, isLoading } = useSWR('/api/pedidos', fetcher, { refreshInterval: 1000 })
 
     console.log(data)
     console.log(error)
